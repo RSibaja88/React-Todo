@@ -1,26 +1,29 @@
 import React from 'react';
 import TodoList from './components/TodoList';
+import TodoForm from './components/TodoForm';
+import './components/Todo.css';
+
 
 
 const stockTasks = [
   {
     task: 'Shower',
-    id: Date.now(),
+    id: Math.random(),
     completed: false
   },
   {
     task: 'Get Dressed',
-    id: Date.now(),
+    id: Math.random(),
     completed: false
   },
   {
     task: 'Eat Breakfast',
-    id: Date.now(),
+    id: Math.random(),
     completed: false
   },
   {
     task: 'Brush Teeth',
-    id: Date.now(),
+    id: Math.random(),
     completed: false
   }
 ];
@@ -48,13 +51,13 @@ toggleCompleted = todoId => {
   });
 };
 
-addTask = taskName => {
+addTodo = todoName => {
   this.setState({
     tasks: [
       ...this.state.tasks,
       {
-        task: taskName,
-        id: Date.now(),
+        task: todoName,
+        id: Math.random(),
         completed: false
       }
     ]
@@ -79,6 +82,9 @@ clearCompleted = () => {
       <div className="App">
         <div className="Title">
         <h2>Today's Task List</h2>
+      </div>
+      <div className="TForm">
+        <TodoForm addTodo={this.addTodo} />
       </div>
       <div className="List">
       <TodoList 
